@@ -1,0 +1,13 @@
+/*la tecnología webcomponents permite encapsular los css de
+manera que no haya colisión de nombres
+*/
+div{
+  padding: 15px;
+}
+.pie{
+  padding: 0px;
+  margin: 0px;
+}
+.btn-primary-outline {
+  background-color: transparent;
+}

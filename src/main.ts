@@ -3,6 +3,7 @@ import './polyfills.ts';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';
+//al importar esto se puede referenciar a cualquier clase de la carpeta
 import { AppModule } from './app/';
 
 if (environment.production) {

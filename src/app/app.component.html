@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<!-- incluyo el componente header pasando el parámetro title
+al usar corchetes creo una variable con un parametro, sino puedo
+pasar directamente el parámentro.
+-->
+<header [title]='appTitle'></header>
+
+<div style="float: left; width: 20%;" >
+ <varios></varios>
+</div>
+<h1 class="title">Library</h1>
+<router-outlet></router-outlet>
+<div style="float: right; width: 70%;" >
+  <item></item>
+<!--  <google></google>  -->
+ <footer></footer>
+</div>

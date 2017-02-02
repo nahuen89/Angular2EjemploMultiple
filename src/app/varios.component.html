@@ -1,0 +1,66 @@
+
+<div>
+  <h1>Hello {{name}}!</h1>
+  <img [src]="imgUrl"/>
+</div>
+
+<div>
+  <!-- ngModel permite editar directamente desde el template
+[] los corchetes se refieren a la lectura del valor  y
+() actualiza el atributo dentro del template ca vez que cambia el valor
+con los dos elementos conseguimos el 2 way data binding -->
+<input type="text" [(ngModel)]="name">
+<!-- este evento setName llama el evento del components pasandole un parámetro
+con los parentesis le digo que esto es un codigo específico del componente
+ al que está asociado este template -->
+<p>{{name}}</p>
+
+</div>
+
+<div>
+<button (click)="setName('John')">
+    Hello John
+</button>
+</div>
+  <div>
+    <input type="radio" name="gender" [(ngModel)]="gender" value="Hombre"> Hombre
+    <input type="radio" name="gender" [(ngModel)]="gender" value="Mujer"> Mujer
+    Selected gender is <strong>{{gender}}</strong>
+    <br>
+
+    <input type="checkbox" [(ngModel)]="angular" /> Angular
+  <input type="checkbox" [(ngModel)]="javascript" /> JavaScript
+  <input type="checkbox" [(ngModel)]="jNode" /> JNode
+    <ul> <!-- con el *ngIf muestro solo lo que el valor es true -->
+        <li *ngIf="angular">Angular</li>
+        <li *ngIf="javascript">JavaScript</li>
+        <li *ngIf="jNode">JNode</li>
+    </ul>
+  </div>
+  <div>
+    <label>días que asistirás</label>
+
+    <span *ngFor="let item of items">
+      <!-- genero los checkbox pasandole la propiedad selected -->
+      <input  type="checkbox" [(ngModel)]="item.selected" /> {{item.value}}
+    </span>
+  <div>
+    <!-- esta es la forma de iterar en una lista correctamente -->
+    <ul>
+        <template ngFor let-item [ngForOf]="items">
+            <li *ngIf="item.selected">{{item.value}}</li>
+        </template>
+    </ul>
+
+    <button (click)="change()">Change</button>
+  </div>
+  <div>
+    <!-- la almoadilla puede referenciarse en cualquier lugar del documento -->
+    <input #cityInput type="text">
+    <!-- al hacer clicl en el boton llamas al metodo update pasando el value del citiyImput
+    y luedo del ): le pasas ese valor al cityImput -->
+    <button (click)="update(cityInput.value); cityInput.value=''">Update city</button>
+<!-- aplico estilo a este atributo mediante la directiva ngStyle-->
+    <p>City: {{city}}</p>
+  </div>
+</div>
